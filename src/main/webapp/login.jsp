@@ -14,6 +14,9 @@
 <body>
 <div class="container">
 	<form action="/login" method="post">
+		<div class="text-danger">
+			${message }
+		</div>
 		<div class="form-floating">
 			<input type="text" class="form-control" id="userId" name="userId" placeholder="아이디">
 			<label for="userId">아이디</label>

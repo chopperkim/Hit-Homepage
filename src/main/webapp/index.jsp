@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="ko" class="h-100" data-bs-theme="auto">
 <head>
@@ -184,7 +185,14 @@
 				<nav class="nav nav-masthead justify-content-center float-md-end">
 					<a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="/">Home</a>
 					<a class="nav-link fw-bold py-1 px-0" href="/board/list">게시판</a>
-					<a class="nav-link fw-bold py-1 px-0" href="/login">로그인</a>
+					<c:choose>
+						<c:when test="${not empty member}">
+						<span>${member.name }님 로그인</span>						
+						</c:when>
+						<c:otherwise>
+						<a class="nav-link fw-bold py-1 px-0" href="/login">로그인</a>
+						</c:otherwise>
+					</c:choose>
 					<a class="nav-link fw-bold py-1 px-0" href="/register">회원가입</a>
 				</nav>
 			</div>

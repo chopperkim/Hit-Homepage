@@ -50,7 +50,7 @@ public class RegisterServelt extends HttpServlet {
 			Connection connection = DriverManager.getConnection("jdbc:mysql://nextit.or.kr:23306/hit15", "hit15", "hit15");
 			// 3. 질의(Query) 전송 준비
 			// 4. 쿼리 작성
-			String sql = "insert into member (id, password, name, email. phone_number) values (?, ?, ?, ?, ?)";
+			String sql = "insert into member (id, password, name, email, phone_number) values (?, ?, ?, ?, ?)";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, id);
 			statement.setString(2, password);
