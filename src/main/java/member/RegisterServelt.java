@@ -1,4 +1,4 @@
-package join;
+package member;
 
 import java.io.IOException;
 import java.sql.Connection;

@@ -15,47 +15,68 @@
 </head>
 <body>
 <div class="container">
-	<h2 class="h2 text-center">게시판</h2>
-	<div class="text-end">
-		<a href="/board/insert" class="btn btn-info">등록</a>
-	</div>
-	<table class="table table-striped table-bordered">
-		<thead>
-			<tr>
-				<th>글번호</th>
-				<th>제목</th>
-				<th>작성자</th>
-				<th>생성일자</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${boards}" var="board">
-			<tr>
-				<td>${board.no }</td>
-				<td><a href="/board/view?no=${board.no}">${board.title }</a></td>
-				<td>${board.writer }</td>
-				<td>${board.createDate }</td>
-			</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-	<nav aria-label="Page navigation example">
-	  <ul class="pagination justify-content-center">
-	    <li class="page-item">
-	      <a class="page-link" href="#" aria-label="Previous">
-	        <span aria-hidden="true">&laquo;</span>
-	      </a>
-	    </li>
-	    <li class="page-item"><a class="page-link" href="#">1</a></li>
-	    <li class="page-item"><a class="page-link" href="#">2</a></li>
-	    <li class="page-item"><a class="page-link" href="#">3</a></li>
-	    <li class="page-item">
-	      <a class="page-link" href="#" aria-label="Next">
-	        <span aria-hidden="true">&raquo;</span>
-	      </a>
-	    </li>
-	  </ul>
-	</nav>
+	<header class="mb-auto py-5">
+		<div>
+			<h3 class="float-md-start mb-0">게시판</h3>
+			<nav class="nav nav-masthead justify-content-center float-md-end">
+				<a class="nav-link fw-bold py-1 px-2 active" aria-current="page" href="/">Home</a>
+				<a class="nav-link fw-bold py-1 px-2" href="/board/list">게시판</a>
+				<c:choose>
+					<c:when test="${not empty member}">
+					<span class="fw-bold py-1 px-2">${member.name }님</span>
+					<a class="nav-link fw-bold py-1 px-2" href="/logout">로그아웃</a>
+					</c:when>
+					<c:otherwise>
+					<a class="nav-link fw-bold py-1 px-2" href="/login">로그인</a>
+					</c:otherwise>
+				</c:choose>
+				<a class="nav-link fw-bold py-1 px-2" href="/register">회원가입</a>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+		<div class="text-end">
+			<a href="/board/insert" class="btn btn-info">등록</a>
+		</div>
+		<table class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>글번호</th>
+					<th>제목</th>
+					<th>작성자</th>
+					<th>생성일자</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${boards}" var="board">
+				<tr>
+					<td>${board.no }</td>
+					<td><a href="/board/view?no=${board.no}">${board.title }</a></td>
+					<td>${board.writer }</td>
+					<td>${board.createDate }</td>
+				</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		<nav aria-label="Page navigation example">
+		  <ul class="pagination justify-content-center">
+		    <li class="page-item">
+		      <a class="page-link" href="#" aria-label="Previous">
+		        <span aria-hidden="true">&laquo;</span>
+		      </a>
+		    </li>
+		    <li class="page-item"><a class="page-link" href="#">1</a></li>
+		    <li class="page-item"><a class="page-link" href="#">2</a></li>
+		    <li class="page-item"><a class="page-link" href="#">3</a></li>
+		    <li class="page-item">
+		      <a class="page-link" href="#" aria-label="Next">
+		        <span aria-hidden="true">&raquo;</span>
+		      </a>
+		    </li>
+		  </ul>
+		</nav>
+	</main>
 </div>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"

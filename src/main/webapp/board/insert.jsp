@@ -23,6 +23,7 @@
 			<textarea rows="20" cols="80" name="content" class="form-control"></textarea>
 		</div>
 		<div class="text-end">
+			<input type="hidden" name="writer" value="${member.id }">
 			<button type="submit" class="btn btn-success">등록</button>
 		</div>
 	</form>

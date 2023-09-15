@@ -38,7 +38,8 @@ public class BoardListServlet extends HttpServlet {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connection = DriverManager.getConnection("jdbc:mysql://nextit.or.kr:23306/hit15", "hit15", "hit15");
 			Statement statement = connection.createStatement();
-			String sql = "select no, title, content, writer, create_date, modify_date from board";
+			String sql = "select a.no, a.title, a.content, b.name writer, a.create_date, a.modify_date"
+					+ " from board a left outer join member b on a.writer = b.id";
 			ResultSet resultSet = statement.executeQuery(sql);
 			List<BoardVO> list = new ArrayList<BoardVO>();
 			while (resultSet.next()) {

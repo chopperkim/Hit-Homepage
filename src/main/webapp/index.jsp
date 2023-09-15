@@ -183,17 +183,18 @@
 			<div>
 				<h3 class="float-md-start mb-0">HIT 홈페이지</h3>
 				<nav class="nav nav-masthead justify-content-center float-md-end">
-					<a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="/">Home</a>
-					<a class="nav-link fw-bold py-1 px-0" href="/board/list">게시판</a>
+					<a class="nav-link fw-bold py-1 px-2 active" aria-current="page" href="/">Home</a>
+					<a class="nav-link fw-bold py-1 px-2" href="/board/list">게시판</a>
 					<c:choose>
 						<c:when test="${not empty member}">
-						<span>${member.name }님 로그인</span>						
+						<span class="fw-bold py-1 px-2">${member.name }님</span>
+						<a class="nav-link fw-bold py-1 px-2" href="/logout">로그아웃</a>
 						</c:when>
 						<c:otherwise>
-						<a class="nav-link fw-bold py-1 px-0" href="/login">로그인</a>
+						<a class="nav-link fw-bold py-1 px-2" href="/login">로그인</a>
 						</c:otherwise>
 					</c:choose>
-					<a class="nav-link fw-bold py-1 px-0" href="/register">회원가입</a>
+					<a class="nav-link fw-bold py-1 px-2" href="/register">회원가입</a>
 				</nav>
 			</div>
 		</header>
