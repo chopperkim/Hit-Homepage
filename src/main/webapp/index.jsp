@@ -195,6 +195,9 @@
 						</c:otherwise>
 					</c:choose>
 					<a class="nav-link fw-bold py-1 px-2" href="/register">회원가입</a>
+					<c:if test="${not empty member }">
+					<a class="nav-link fw-bold py-1 px-2" href="/member/manage">회원관리</a>
+					</c:if>
 				</nav>
 			</div>
 		</header>
