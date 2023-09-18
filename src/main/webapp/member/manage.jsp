@@ -49,7 +49,7 @@
 				<c:forEach items="${members}" var="member">
 				<tr>
 					<td>${member.id }</td>
-					<td><a href="/member/view?no=${member.id}">${member.name }</a></td>
+					<td><a href="/member/modify?userId=${member.id}">${member.name }</a></td>
 					<td>${member.email }</td>
 					<td>${member.phoneNumber }</td>
 				</tr>
